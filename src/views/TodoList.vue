@@ -1,5 +1,5 @@
 <template>
-<div class="flex justify-center items-center py-3 bg-gray-100 h-screen">
+<div class="flex justify-center   bg-gray-100 h-screen">
   <div class=" mx-auto  bg-gray-150 rounded py-4 px-4">
           <div class="py-2">
               <input type="text" class="todo-input outline-none border border-gray-300 rounded h-10 w-96 px-2 " 
