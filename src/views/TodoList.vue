@@ -32,11 +32,11 @@
 
 <script>
 
-import TodoItem from './TodoItem.vue'
-import TodoItemsRemaining from './TodoItemsRemaining.vue'
-import TodoCheckAll from './TodoCheckAll.vue'
-import TodoFiltered from './TodoFiltered.vue'
-import TodoClearCompleted from './TodoClearCompleted.vue'
+import TodoItem from '../components/TodoItem.vue'
+import TodoItemsRemaining from '../components/TodoItemsRemaining.vue'
+import TodoCheckAll from '../components/TodoCheckAll.vue'
+import TodoFiltered from '../components/TodoFiltered.vue'
+import TodoClearCompleted from '../components/TodoClearCompleted.vue'
 
 export default {
 
