@@ -1,5 +1,5 @@
 <template>
-  <div id="app">
+  <div id="todo">
      <todo-list></todo-list>
   </div>
 </template>
@@ -9,7 +9,7 @@ import TodoList from './components/TodoList.vue'
 
 
 export default {
-  name: 'App',
+  name: 'todo',
   components: {
     
     TodoList,
@@ -19,7 +19,7 @@ export default {
 </script>
 
 <style>
-#app {
+#todo {
   font-family: Avenir, Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
