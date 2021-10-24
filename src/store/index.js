@@ -2,34 +2,24 @@ import Vue from 'vue'
 import Vuex from 'vuex'
 import axios from 'axios'
 
-axios.defaults.baseURL='http://127.0.0.1:8000/api'
+axios.defaults.baseURL='http://todo-laravel.test/api'
 
 
 Vue.use(Vuex)
 
 export default new Vuex.Store({
   state:{
+    token:localStorage.getItem('access_token') || null,
     filter:'all',
-    todos:[
-
-        // {
-        //   'id':1,
-        //   'title':'Finish vue screen cast',
-        //   'completed':false,
-        //   'editing':false,
-        // },  
-
-        // {
-        //   'id':2,
-        //   'title':'Take over world',
-        //   'completed':false,
-        //   'editing':false,
-        // },
-        
-        ]
+    todos:[]
 },
 
 getters:{
+
+      loggedIn(state){
+        return state.token !==null
+      },
+
       remaining(state){
         return state.todos.filter(todo =>!todo.completed).length;
         
@@ -97,10 +87,58 @@ mutations:{
 
   retrieveTodos(state,todos){
     state.todos=todos
+  },  
+  retrieveToken(state,token){
+    state.token=token
+  },
+  destroyToken(state){
+    state.token=null
   }
 },
 
 actions:{
+    destroyToken(context){
+      if(context.getters.loggedIn){
+        return new Promise((resolve,reject)=>{
+          axios.post('/logout')
+          .then(response => {
+            localStorage.removeItem('access_token')
+            context.commit('destroyToken')
+            resolve(response)
+            // console.log(response);
+          })
+          .catch(error=>{
+            localStorage.removeItem('access_token')
+            context.commit('destroyToken')
+            console.log(error)
+            reject(error)
+          })
+      })
+      }
+
+    },
+    retrieveToken(context,credentials){
+
+    return new Promise((resolve,reject)=>{
+        axios.post('/login',{
+          username:credentials.username,
+          password:credentials.password,
+        })
+        .then(response => {
+          const token= response.data.access_token
+          localStorage.setItem('access_token',token)
+          context.commit('retrieveToken',token)
+          resolve(response)
+          // console.log(response);
+        })
+        .catch(error=>{
+          console.log(error)
+          reject(error)
+        })
+    })
+
+  },
+
   retrieveTodos(context){
     axios.get('/todos')
     .then(response=>{

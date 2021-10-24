@@ -8,6 +8,7 @@ import About from '@/views/marketing/About'
 import Login from '@/components/auth/Login'
 import Register from '@/components/auth/Register'
 import TestTodosVariable from '@/views/marketing/TestTodosVariable'
+import Logout from '@/components/auth/Logout'
 
 
 Vue.use(VueRouter)
@@ -42,6 +43,11 @@ const routes = [
     path: '/todos/:id',
     name: 'todos',
     component: TestTodosVariable,
+  },
+  {
+    path: '/logout',
+    name: 'logout',
+    component: Logout,
   },
 ]
 
