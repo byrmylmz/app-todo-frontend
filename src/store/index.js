@@ -97,26 +97,27 @@ mutations:{
 },
 
 actions:{
-    destroyToken(context){
-      if(context.getters.loggedIn){
-        return new Promise((resolve,reject)=>{
-          axios.post('/logout')
+  destroyToken(context) {
+    axios.defaults.headers.common['Authorization'] = 'Bearer ' + context.state.token
+
+    if (context.getters.loggedIn) {
+      return new Promise((resolve, reject) => {
+        axios.post('/logout')
           .then(response => {
             localStorage.removeItem('access_token')
             context.commit('destroyToken')
             resolve(response)
             // console.log(response);
+            // context.commit('addTodo', response.data)
           })
-          .catch(error=>{
+          .catch(error => {
             localStorage.removeItem('access_token')
             context.commit('destroyToken')
-            console.log(error)
             reject(error)
           })
       })
-      }
-
-    },
+    }
+  },
     retrieveToken(context,credentials){
 
     return new Promise((resolve,reject)=>{
