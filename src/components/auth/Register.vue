@@ -17,20 +17,22 @@
            {{value[0]}}
          </div>
        </div>
-       
       <input type="hidden" name="remember" value="true">
-      <div class="rounded-md shadow-sm -space-y-px">
+      <div class="rounded-md  shadow-sm -space-y-px">
         <div>
           <label for="name" class="sr-only">Name</label>
-          <input id="name" name="name" type="name" autocomplete="name" v-model="name"  class="appearance-none rounded-none relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-t-md focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm" placeholder="Name">
+          <input id="name" name="name" type="name" autocomplete="name" v-model="name" v-validate="'required'" class="appearance-none rounded-none relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-t-md focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm" placeholder="Name">
+         <div>{{ errors.first('name') }}</div>
         </div>
         <div>
           <label for="email-address" class="sr-only">Email address</label>
-          <input id="username" name="username" type="email" autocomplete="email" v-model="username"  class="appearance-none rounded-none relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm" placeholder="Email address">
+          <input id="username" name="username" type="email" autocomplete="email" v-model="username" v-validate="'required|email'" class="appearance-none rounded-none relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm" placeholder="Email address">
+           <div>{{ errors.first('username') }}</div>
         </div>
         <div>
           <label for="password" class="sr-only">Password</label>
-          <input id="password" name="password" type="password" autocomplete="current-password"  v-model="password"  class="appearance-none rounded-none relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-b-md focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm" placeholder="Password">
+          <input id="password" name="password" type="password" autocomplete="current-password"  v-model="password" v-validate="'required|min:6'" class="appearance-none rounded-none relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-b-md focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm" placeholder="Password">
+           <div>{{ errors.first('password') }}</div> 
         </div>
       </div>
 

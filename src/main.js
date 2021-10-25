@@ -4,11 +4,15 @@ import router from './router'
 import store from './store'
 import '@/assets/css/tailwind.css'
 import './index.css'
+import VeeValidate from 'vee-validate';
+
 
 window.eventBus=new Vue()
 
 
+
 Vue.config.productionTip = false
+Vue.use(VeeValidate);
 
 
 router.beforeEach((to, from, next) => {
