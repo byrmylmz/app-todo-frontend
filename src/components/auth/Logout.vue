@@ -9,7 +9,7 @@ export default {
   created(){
     this.$store.dispatch('clearTodos')
     this.$store.dispatch('destroyToken')
-    .then(response=>{
+    .then(()=>{
       this.$router.push({name:'home'})
     })
   }

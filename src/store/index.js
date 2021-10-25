@@ -97,9 +97,24 @@ mutations:{
   clearTodos(state){
     state.todos=[]
   },
+
 },
 
 actions:{
+  retrieveName(context){
+    axios.defaults.headers.common['Authorization'] = 'Bearer ' + context.state.token
+
+    return new Promise((resolve,reject)=>{
+      axios.get('/user')
+      .then(response => {
+        resolve(response)
+      })
+      .catch(error=>{
+        reject(error)
+      })
+  })
+
+  },
 
 
   clearTodos(context){
@@ -111,7 +126,7 @@ actions:{
     return new Promise((resolve,reject)=>{
       axios.post('/register',{
         name:data.name,
-        email:data.email,
+        email:data.username,
         password:data.password,
       })
       .then(response => {
@@ -212,7 +227,7 @@ actions:{
 
   deleteTodo(context,id){
     axios.delete('/todos/'+ id)
-    .then(response=>{
+    .then(()=>{
       context.commit('deleteTodo',id)
     })
     .catch(error=>{
@@ -224,7 +239,7 @@ actions:{
     axios.patch('/todosCheckAll',{
       completed:checked,
     })
-    .then(response=>{
+    .then(()=>{
       context.commit('checkAll',checked)
     })
     .catch(error=>{
@@ -248,7 +263,7 @@ actions:{
         todos:completed
       }
     })
-    .then(response=>{
+    .then(()=>{
       context.commit('clearCompleted')  
     })
     .catch(error=>{

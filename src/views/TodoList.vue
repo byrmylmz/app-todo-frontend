@@ -1,5 +1,8 @@
 <template>
 <div class="flex justify-center   bg-gray-100 h-screen">
+  <div class="">
+  Welcome, {{name}}
+  </div>
   <div class=" mx-auto  bg-gray-150 rounded py-4 px-4">
           <div class="py-2">
               <input type="text" class="todo-input outline-none border border-gray-300 rounded h-10 w-96 px-2 " 
@@ -54,12 +57,18 @@ export default {
       newTodo:'',
       idForTodo:3,
       beforeEditCache:'',
+      name:'Test',
          
     }
   },
 
     created(){
       this.$store.dispatch('retrieveTodos')
+      this.$store.dispatch('retrieveName')
+        .then(response=>{
+          this.name=response.data.name
+        })
+      
     },
 
    computed:{
