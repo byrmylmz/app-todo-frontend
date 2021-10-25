@@ -54,6 +54,28 @@
 
 <script>
 export default {
+  data(){
+    return{
+      name:'',
+      email:'',
+      password:'',
+    }
+  },
+  methods:{
+    register(){
+      this.$store.dispatch('register',{
+
+        name:this.name,
+        email:this.username,
+        password:this.password,
+  
+      })
+       .then(response=>{
+         this.$router.push({name:'login'})
+       })
+
+    }
+  }
   
 }
 </script>
