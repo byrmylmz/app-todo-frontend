@@ -16,7 +16,9 @@
       </p>
     </div>
     <form class="mt-8 space-y-6" action="#" @submit.prevent="login" >
-        <div v-if="serverError" class="">{{serverError}}</div>
+     <div v-if="successMessage" class="flex items-center rounded bg-green-100 mt-1 mb-1 p-1 text-xs text-green-800 border border-green-300">{{successMessage}}</div>
+
+        <div v-if="serverError" class="flex items-center rounded bg-red-100 mt-1 mb-1 p-1 text-xs text-red-800 border border-red-300" >{{serverError}}</div>
       <input type="hidden" name="remember" value="true">
       <div class="rounded-md shadow-sm -space-y-px">
         <div>
@@ -66,11 +68,18 @@
 <script>
 export default {
   name:'login',
+  props:{
+    dataSuccessMessage:{
+      type:String
+    }
+  },
   data(){
     return{
       username:'',
       password:'',
       serverError:'',
+      successMessage:this.dataSuccessMessage,
+
     }
   },
   methods:{
@@ -78,7 +87,7 @@ export default {
       this.$store.dispatch('retrieveToken',{
         username:this.username,
         password:this.password,
-  
+        
       })
        .then(()=>{
          this.$router.push({name:'todo'})
@@ -86,6 +95,7 @@ export default {
        .catch(error=>{
         this.serverError=error.response.data
         this.password=''
+        this.successMessage=''
        })
     }
   }

@@ -8,12 +8,12 @@
       <h2 class="mt-6 text-center text-3xl font-extrabold text-gray-900">
         Register to to do App
       </h2>
-
-      
     </div>
-    <form class="mt-8 space-y-6" action="#" @submit.prevent="register" method="POST">
+    <form class="mt-8 space-y-6" action="#" @submit.prevent="validateBeforeSubmit" method="POST">
+        <!-- <div v-if="successMessage" class="flex items-center rounded bg-green-100 mt-1 mb-1 p-1 text-xs text-green-800 border border-green-300">{{successMessage}}</div> -->
+
        <div v-if="serverErrors" class="">
-         <div v-for="(value,key) in serverErrors" :key="key">
+         <div class="flex items-center rounded bg-red-100 mt-1 mb-1 p-1 text-xs text-red-800 border border-red-300" v-for="(value,key) in serverErrors" :key="key">
            {{value[0]}}
          </div>
        </div>
@@ -22,17 +22,17 @@
         <div>
           <label for="name" class="sr-only">Name</label>
           <input id="name" name="name" type="name" autocomplete="name" v-model="name" v-validate="'required'" class="appearance-none rounded-none relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-t-md focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm" placeholder="Name">
-         <div>{{ errors.first('name') }}</div>
+         <div v-if="errors.first('name')" class="flex items-center rounded bg-red-100 mt-1 mb-1 p-1 text-xs text-red-800 border border-red-300">{{ errors.first('name') }}</div>
         </div>
         <div>
           <label for="email-address" class="sr-only">Email address</label>
           <input id="username" name="username" type="email" autocomplete="email" v-model="username" v-validate="'required|email'" class="appearance-none rounded-none relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm" placeholder="Email address">
-           <div>{{ errors.first('username') }}</div>
+           <div v-if="errors.first('username')" class="flex items-center rounded bg-red-100 mt-1 mb-1 p-1 text-xs text-red-800 border border-red-300">{{ errors.first('username') }}</div>
         </div>
         <div>
           <label for="password" class="sr-only">Password</label>
           <input id="password" name="password" type="password" autocomplete="current-password"  v-model="password" v-validate="'required|min:6'" class="appearance-none rounded-none relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-b-md focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm" placeholder="Password">
-           <div>{{ errors.first('password') }}</div> 
+           <div v-if="errors.first('password')" class="flex items-center rounded bg-red-100 mt-1 mb-1 p-1 text-xs text-red-800 border border-red-300">{{ errors.first('password') }}</div> 
         </div>
       </div>
 
@@ -69,9 +69,20 @@ export default {
       username:'',
       password:'',
       serverErrors:'',
+      successMessage:'',
     }
   },
   methods:{
+    validateBeforeSubmit(){
+      this.$validator.validateAll().then(result=>{
+        if(result){
+          this.register();
+           // return;
+        }
+        // alert('correct them errors.');
+      })
+
+    },
     register(){
       this.$store.dispatch('register',{
 
@@ -81,7 +92,9 @@ export default {
   
       })
        .then(()=>{
-         this.$router.push({name:'login'})
+         this.successMessage='Registered Succesfully'
+         this.$router.push({name:'login',params:{dataSuccessMessage:this.successMessage}})
+
        })
        .catch(error=>{
          this.serverErrors=Object.values(error.response.data.errors)
