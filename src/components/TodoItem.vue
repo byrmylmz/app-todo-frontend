@@ -1,12 +1,15 @@
 <template>
     <div class="todo-item">
+        
         <div  class="shadow-md p-3 flex flex-row rounded-lg justify-between">
                       <div class="flex items-center ">
                           <div class="bg-blue-400 inline-block rounded-lg p-1 mr-1 h-full"></div>
-                            <input type="checkbox" v-model="completed" @change="doneEdit">
+                            <input type="checkbox"  class="" v-model="completed" @change="doneEdit">
                             <div v-if="!editing" @dblclick="editTodo(todo)" class="flex pl-1"  :class="{ completed : completed } "> {{title}}</div>    
-                          <input v-else type="text" v-model="title" @blur="doneEdit(todo)" @keyup.enter="doneEdit(todo)"  @keyup.esc="cancelEdit(todo)" class="flex border border-gray-500 bg-gray-100 rounded"> 
+                          <input v-else type="text" v-model="title" @blur="doneEdit(todo)" @keyup.enter="doneEdit(todo)"  @keyup.esc="cancelEdit(todo)" 
+                          class="flex border border-gray-500 bg-gray-100 rounded "> 
                       </div>
+                      
                         
                         <div class="flex items-center">
                              <div>

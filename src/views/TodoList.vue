@@ -1,11 +1,23 @@
 <template>
 <div class="flex justify-center   bg-gray-100 h-screen">
-  <div class="">
-  Welcome, {{name}}
-  </div>
+
   <div class=" mx-auto  bg-gray-150 rounded py-4 px-4">
+        
+          <div class="p-2 bg-indigo-800 items-center text-indigo-100 leading-none rounded-full flex inline-flex"  role="alert">
+            <span class="flex rounded-full bg-indigo-500 uppercase px-2 py-1 text-xs font-bold mr-3">Welcome</span>
+            <span class="font-semibold mr-2 text-left flex-auto">Hello {{name}} Welcome</span>
+            <svg class="fill-current opacity-75 h-4 w-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"><path d="M12.95 10.707l.707-.707L8 4.343 6.586 5.757 10.828 10l-4.242 4.243L8 15.657l4.95-4.95z"/></svg>
+          </div>
+        
           <div class="py-2">
-              <input type="text" class="todo-input outline-none border border-gray-300 rounded h-10 w-96 px-2 " 
+              <input type="text" 
+              class="outline-none
+                     border-2 border-gray-300 
+                     rounded-lg 
+                     h-12 w-96 px-2 bg-gray-200
+                     
+                     focus:ring-2 focus:ring-blue-600 focus:bg-blue-100 
+                     shadow-md" 
                   placeholder="What needs to be done." v-model="newTodo" @keyup.enter="addTodo">
           </div>
           <!-- transition group -->
@@ -105,7 +117,6 @@ export default {
 </script>
 
 <style >
- @import url(https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.2/animate.min.css);
     .completed{
       text-decoration-line: line-through;
       color:gray;

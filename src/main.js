@@ -5,14 +5,22 @@ import store from './store'
 import '@/assets/css/tailwind.css'
 import './index.css'
 import VeeValidate from 'vee-validate';
+import CxltToastr from 'cxlt-vue2-toastr'
 
+
+var toastrConfigs = {
+  position: 'bottom right',
+  showDuration: 2000,
+  timeOut:5000,
+  progressBar:true
+}
 
 window.eventBus=new Vue()
-
-
-
 Vue.config.productionTip = false
 Vue.use(VeeValidate);
+Vue.use(CxltToastr, toastrConfigs)
+
+
 
 
 router.beforeEach((to, from, next) => {
