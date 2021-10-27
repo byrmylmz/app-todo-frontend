@@ -2,7 +2,7 @@ import Vue from 'vue'
 import Vuex from 'vuex'
 import axios from 'axios'
 
-axios.defaults.baseURL='http://todo-laravel.test/api'
+axios.defaults.baseURL='https://todo-backend-61.herokuapp.com/api'
 
 
 Vue.use(Vuex)
