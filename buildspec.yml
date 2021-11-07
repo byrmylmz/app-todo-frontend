@@ -9,7 +9,9 @@ phases:
       - npm run build
 
 artifacts:
-  files:
+files:
     - '**/*'
+  discard-paths: no
+  base-directory: build
   
  
