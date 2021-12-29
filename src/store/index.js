@@ -2,7 +2,7 @@ import Vue from 'vue'
 import Vuex from 'vuex'
 import axios from 'axios'
 
-axios.defaults.baseURL='http://api.alakod.com/api'
+axios.defaults.baseURL='https://api.alakod.com/api'
 
 
 Vue.use(Vuex)
