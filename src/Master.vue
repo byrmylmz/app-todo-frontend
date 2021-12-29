@@ -10,12 +10,12 @@
       <li v-if="loggedIn"><router-link :to="{ name: 'logout' }">Logout</router-link></li>
     </ul>
 
-          <transition
+          <!-- <transition
             name="router-animation" 
             enter-active-class="animated fadeIn" 
-            leave-active-class="animated fadeOut" mode='out-in'>
+            leave-active-class="animated fadeOut" mode='out-in'> -->
             <router-view></router-view>
-        </transition>
+        <!-- </transition> -->
   </div>
 </template>
 
@@ -65,7 +65,7 @@ export default {
     text-transform: uppercase;
   }
   .page-wrapper {
-    animation-duration:0.2s;
+    animation-duration:0.1s;
   }
     /* 
       || spinner css  
