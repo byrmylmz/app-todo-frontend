@@ -8,38 +8,7 @@
       </svg>
 
       <div>
-        <div class="relative pt-6 px-4 sm:px-6 lg:px-8">
-          <nav class="relative flex items-center justify-between sm:h-10 lg:justify-start" aria-label="Global">
-            <div class="flex items-center flex-grow flex-shrink-0 lg:flex-grow-0">
-              <div class="flex items-center justify-between w-full md:w-auto">
-                <a href="#">
-                  <span class="sr-only">Workflow</span>
-                  <img class="h-8 w-auto sm:h-10" src="https://tailwindui.com/img/logos/workflow-mark-indigo-600.svg">
-                </a>
-                <div class="-mr-2 flex items-center md:hidden">
-                  <button type="button" class="bg-white rounded-md p-2 inline-flex items-center justify-center text-gray-400 hover:text-gray-500 hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-indigo-500" aria-expanded="false">
-                    <span class="sr-only">Open main menu</span>
-                    <!-- Heroicon name: outline/menu -->
-                    <svg class="h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
-                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
-                    </svg>
-                  </button>
-                </div>
-              </div>
-            </div>
-            <div class="hidden md:block md:ml-10 md:pr-4 md:space-x-8">
-              <a href="#" class="font-medium text-gray-500 hover:text-gray-900">Product</a>
-
-              <a href="#" class="font-medium text-gray-500 hover:text-gray-900">Features</a>
-
-              <a href="#" class="font-medium text-gray-500 hover:text-gray-900">Marketplace</a>
-
-              <a href="#" class="font-medium text-gray-500 hover:text-gray-900">Company</a>
-
-              <a href="#" class="font-medium text-indigo-600 hover:text-indigo-500">Log in</a>
-            </div>
-          </nav>
-        </div>
+   
 
         <!--
           Mobile menu, show/hide based on menu open state.
@@ -86,23 +55,23 @@
       <main class="mt-10 mx-auto max-w-7xl px-4 sm:mt-12 sm:px-6 md:mt-16 lg:mt-20 lg:px-8 xl:mt-28">
         <div class="sm:text-center lg:text-left">
           <h1 class="text-4xl tracking-tight font-extrabold text-gray-900 sm:text-5xl md:text-6xl">
-            <span class="block xl:inline">Data to enrich your</span>
-            <span class="block text-indigo-600 xl:inline">online business</span>
+            <span class="block xl:inline">Organize Your</span>
+            <span class="block text-indigo-600 xl:inline">Tasks</span>
           </h1>
           <p class="mt-3 text-base text-gray-500 sm:mt-5 sm:text-lg sm:max-w-xl sm:mx-auto md:mt-5 md:text-xl lg:mx-0">
-            Anim aute id magna aliqua ad ad non deserunt sunt. Qui irure qui lorem cupidatat commodo. Elit sunt amet fugiat veniam occaecat fugiat aliqua.
+            Regain clarity and calmness by getting all those tasks out of your head and onto your to-do list (no matter where you are or what device you use).
           </p>
           <div class="mt-5 sm:mt-8 sm:flex sm:justify-center lg:justify-start">
             <div class="rounded-md shadow">
-              <a href="#" class="w-full flex items-center justify-center px-8 py-3 border border-transparent text-base font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700 md:py-4 md:text-lg md:px-10">
+              <a href="https://app.alakod.com/register" class="w-full flex items-center justify-center px-8 py-3 border border-transparent text-base font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700 md:py-4 md:text-lg md:px-10">
                 Get started
               </a>
             </div>
-            <div class="mt-3 sm:mt-0 sm:ml-3">
+            <!-- <div class="mt-3 sm:mt-0 sm:ml-3">
               <a href="#" class="w-full flex items-center justify-center px-8 py-3 border border-transparent text-base font-medium rounded-md text-indigo-700 bg-indigo-100 hover:bg-indigo-200 md:py-4 md:text-lg md:px-10">
                 Live demo
               </a>
-            </div>
+            </div> -->
           </div>
         </div>
       </main>
