@@ -47,6 +47,9 @@
             <a class="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium">
               <router-link :to="{ name: 'about' }">About</router-link></a>
 
+            <a class="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium">
+              <router-link :to="{ name: 'pricing' }">Pricing</router-link></a>
+
 
 
 
@@ -124,14 +127,15 @@
 </template>
 
 <script>
+
 export default {
- 
+
   computed:{
     loggedIn(){
       return this.$store.getters.loggedIn
     }
 
-  }
+  },
   
 }
 </script>

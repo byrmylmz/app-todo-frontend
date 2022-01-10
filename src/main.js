@@ -6,6 +6,7 @@ import '@/assets/css/tailwind.css'
 import './index.css'
 import VeeValidate from 'vee-validate';
 import CxltToastr from 'cxlt-vue2-toastr'
+import VueHead from 'vue-head'
 
 
 var toastrConfigs = {
@@ -19,6 +20,9 @@ window.eventBus=new Vue()
 Vue.config.productionTip = false
 Vue.use(VeeValidate);
 Vue.use(CxltToastr, toastrConfigs)
+Vue.use(VueHead)
+
+
 
 
 

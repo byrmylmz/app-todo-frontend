@@ -5,6 +5,7 @@ import VueRouter from 'vue-router'
 import TodoList from '@/views/TodoList.vue'
 import LandingPage from '@/views/marketing/LandingPage'
 import About from '@/views/marketing/About'
+import Pricing from '@/views/marketing/Pricing'
 import Login from '@/components/auth/Login'
 import Register from '@/components/auth/Register'
 import TestTodosVariable from '@/views/marketing/TestTodosVariable'
@@ -31,6 +32,11 @@ const routes = [
     path: '/about',
     name: 'about',
     component: About,
+  },
+  {
+    path: '/pricing',
+    name: 'pricing',
+    component: Pricing,
   },
   {
     path: '/login',

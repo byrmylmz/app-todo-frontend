@@ -12,6 +12,14 @@
       <strong>We're sorry but <%= htmlWebpackPlugin.options.title %> doesn't work properly without JavaScript enabled. Please enable it to continue.</strong>
     </noscript>
     <div id="app"></div>
+    <script type="module" src="/src/main.js"></script>
+    <script src="https://cdn.paddle.com/paddle/paddle.js"></script>
+    <script type="text/javascript">
+        Paddle.Environment.set('sandbox');
+        Paddle.Setup({
+            vendor: 4335,
+        });
+    </script>
     <!-- built files will be auto injected -->
   </body>
 </html>
